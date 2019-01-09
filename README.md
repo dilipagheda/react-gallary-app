@@ -1,5 +1,5 @@
 ## About the Project
-This project is 7th project for Treehouse full stack Javascript techdegree. It is about creating an image gallary app using React components, React routes and Fetch API.
+This project is 7th project for Treehouse full stack Javascript techdegree. It is about creating an image gallary app using React components, React routes and Fetch API. It fetches images from Flicker API service. Users can also search the phrase (e.g., cat) and it will show images that matches the search phrase. Yay!!
 
 Project tasks:
 - Use JavaScript and JSX to build out the gallery components in a modular fashion.
@@ -17,6 +17,9 @@ Project tasks:
     export default apiKey;
     ```
 - Do 'npm start' to start the local server and launch the project in the browser.
+
+## Screenshot
+![alt text](https://github.com/dilipagheda/react-gallary-app/blob/master/mockups/Results-Layout.png)
 
 ## More Info
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
