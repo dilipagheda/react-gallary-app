@@ -1,3 +1,24 @@
+## About the Project
+This project is 7th project for Treehouse full stack Javascript techdegree. It is about creating an image gallary app using React components, React routes and Fetch API.
+
+Project tasks:
+- Use JavaScript and JSX to build out the gallery components in a modular fashion.
+- Use React Router to set up routes for three default topic pages and a search page.
+- Use the Fetch API or a tool like Axios to fetch data from the Flickr API and use it to display images in your app.
+- Add logic to handle the search and various requirements of the project.
+- Add to the supplied CSS to personalize the project.
+
+## How to run the project locally
+- Download the project folder on your local machine
+- Do 'npm install' to download all project dependancies
+- Add config.js file in src folder and add a key for Flicker api as below:
+    ```
+    const apiKey = 'YOUR API KEY';
+    export default apiKey;
+    ```
+- Do 'npm start' to start the local server and launch the project in the browser.
+
+## More Info
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
