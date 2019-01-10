@@ -6,15 +6,18 @@ class SearchPhraseForm extends Component {
     state = {
       searchText: ''
     }
-    
+
     onSearchChange = e => {
       this.setState({ searchText: e.target.value });
     }
     
     handleSubmit = e => {
+      let searchPhrase = this.state.searchText;
       e.preventDefault();
-      console.log(this.state.searchText);
+      console.log(searchPhrase);
+      if(searchPhrase.length === 0) return;
       e.currentTarget.reset();
+      this.props.performSearch(searchPhrase);
     }
     
     render() {  

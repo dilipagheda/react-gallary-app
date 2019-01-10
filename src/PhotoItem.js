@@ -3,9 +3,17 @@ import React, { Component } from 'react';
 
 class PhotoItem extends Component {
   render() {
+    if(this.props.notFound){
+      return (
+        <li className="not-found">
+        <h3>No Results Found</h3>
+        <p>You search did not return any results. Please try again.</p>
+      </li>
+      );
+    }
     return (
        <li>
-        <img src="https://farm5.staticflickr.com/4334/37032996241_4c16a9b530.jpg" alt="" />
+        <img src={this.props.photoUrl} alt="" />
       </li>
     );
   }
