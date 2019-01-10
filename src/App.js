@@ -9,7 +9,7 @@ import './index.css';
 import SearchPhraseForm from './SearchPhraseForm';
 import Nav from './Nav';
 import PhotoContainer from './PhotoContainer';
-import NotFound from './NotFound';
+import ResourceNotFound404 from './ResourceNotFound404';
 import Loader from './Loader';
 import appKey from './config'
 
@@ -23,7 +23,8 @@ class App extends Component {
     shouldRedirect:false,
     lastTag:'',
     newTag:'',
-    isLoading:false
+    isLoading:false,
+    isError:true
   }
 
       
@@ -43,9 +44,12 @@ class App extends Component {
     fetch(url)
         .then( response => response.json())
         .then( jsonData => {
-          this.setState({isLoading:false});
-
+          this.setState({isLoading:false, isError:false});
           this.updateState(tag,jsonData.photos.photo)          
+        })
+        .catch( error => {
+          console.log(error)
+          this.setState({isLoading:false, isError:true});
         });
   }
 
@@ -73,7 +77,7 @@ class App extends Component {
       this.setState({lastTag:userTag});
       this.fetchData(userTag);
     }
-    return <PhotoContainer photos={this.state.custom}/>
+    return <PhotoContainer photos={this.state.custom} isError={this.state.isError}/>
   }
 
   searchCallBack(userTag){
@@ -88,6 +92,8 @@ class App extends Component {
       return <Redirect to={`/search/${this.state.newTag}`} />
     }
   }
+
+
   render() {
     return (
       <BrowserRouter>
@@ -95,19 +101,21 @@ class App extends Component {
           <SearchPhraseForm performSearch={this.searchCallBack}/>
           <Nav />
           {this.performRedirect()}
-          {this.state.isLoading?<Loader />:
-              <Switch>
-                <Route exact path="/" render = {()=> <Redirect to="/search/cats" />} />
-                <Route exact path="/search/cats" render={ () => <PhotoContainer photos={this.state.cats}/> } />
-                <Route exact path="/search/dogs" render={ () => <PhotoContainer photos={this.state.dogs}/> } />
-                <Route exact path="/search/computers" render={ () => <PhotoContainer photos={this.state.computers}/> } />
+          <Loader isLoading={this.state.isLoading} />
 
-                <Route path="/search/:tag/" render={({match})=>{ 
-                  return this.getPhotosByCustomTag(match.params.tag)}} />
-                
-                <Route component={NotFound} />
-              </Switch>
-          }
+          <Switch>
+            <Route exact path="/" render = {()=> !this.state.isLoading?<Redirect to="/search/cats" />:null} />
+            <Route exact path="/search/cats" render={ () => !this.state.isLoading?<PhotoContainer photos={this.state.cats} isError={this.state.isError}/>:null  } />
+            <Route exact path="/search/dogs" render={ () => !this.state.isLoading?<PhotoContainer photos={this.state.dogs} isError={this.state.isError}/>:null } />
+            <Route exact path="/search/computers" render={ () => !this.state.isLoading?<PhotoContainer photos={this.state.computers} isError={this.state.isError}/>:null} />
+
+            <Route exact path="/search/:tag/" render={({match})=>{ 
+              return this.getPhotosByCustomTag(match.params.tag)}} />
+            
+            <Route render = {()=> <ResourceNotFound404  />} />
+          </Switch>
+
+          
         </div>
       </BrowserRouter>
     );

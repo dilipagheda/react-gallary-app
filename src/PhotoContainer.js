@@ -6,6 +6,11 @@ class PhotoContainer extends Component {
 
   generatePhotoItems(){
     let photos = this.props.photos;
+
+    if(this.props.isError){
+      return <PhotoItem isError={true} />
+    }
+
     if(photos.length === 0){
       return <PhotoItem notFound={true} />
     }
