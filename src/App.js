@@ -44,8 +44,7 @@ class App extends Component {
     fetch(url)
         .then( response => response.json())
         .then( jsonData => {
-          this.setState({isLoading:false, isError:false});
-          this.updateState(tag,jsonData.photos.photo)          
+          this.updateState(tag,jsonData.photos.photo);
         })
         .catch( error => {
           console.log(error)
@@ -55,13 +54,13 @@ class App extends Component {
 
   updateState(tag,photos){
     if(tag==="cats"){
-      this.setState({cats:photos});
+      this.setState({cats:photos,isLoading:false, isError:false});
     }else if(tag==="dogs"){
-      this.setState({dogs:photos});
+      this.setState({dogs:photos,isLoading:false, isError:false});
     }else if(tag==="computers"){
-      this.setState({computers:photos});
+      this.setState({computers:photos,isLoading:false, isError:false});
     }else{
-      this.setState({custom:photos});
+      this.setState({custom:photos,isLoading:false, isError:false});
     }
   }
 
@@ -77,7 +76,7 @@ class App extends Component {
       this.setState({lastTag:userTag});
       this.fetchData(userTag);
     }
-    return <PhotoContainer photos={this.state.custom} isError={this.state.isError}/>
+    return <PhotoContainer photos={this.state.custom} isError={this.state.isError} isLoading={this.state.isLoading}/>
   }
 
   searchCallBack(userTag){
