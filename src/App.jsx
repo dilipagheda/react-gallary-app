@@ -9,7 +9,7 @@ import './index.css';
 import SearchPhraseForm from './SearchPhraseForm';
 import Nav from './common/Nav';
 import PhotoContainer from './photo/PhotoContainer';
-import ResourceNotFound404 from './common/NotFound';
+import NotFound from './common/NotFound';
 import Loader from './common/Loader';
 import appKey from './config'
 
@@ -111,7 +111,7 @@ class App extends Component {
             <Route exact path="/search/:tag/" render={({match})=>{ 
               return this.getPhotosByCustomTag(match.params.tag)}} />
             
-            <Route render = {()=> <ResourceNotFound404  />} />
+            <Route render = {()=> <NotFound  />} />
           </Switch>
 
           
