@@ -7,10 +7,10 @@ import {
 } from 'react-router-dom';
 import './index.css';
 import SearchPhraseForm from './SearchPhraseForm';
-import Nav from './Nav';
-import PhotoContainer from './PhotoContainer';
-import ResourceNotFound404 from './ResourceNotFound404';
-import Loader from './Loader';
+import Nav from './common/Nav';
+import PhotoContainer from './photo/PhotoContainer';
+import ResourceNotFound404 from './common/NotFound';
+import Loader from './common/Loader';
 import appKey from './config'
 
 class App extends Component {
