@@ -9,14 +9,14 @@ Project tasks:
 - Add to the supplied CSS to personalize the project.
 
 ## How to run the project locally
-- Download the project folder on your local machine
-- Do 'npm install' to download all project dependancies
+- Download the project folder on your local machine. You can also clone it using this link: https://github.com/dilipagheda/react-gallary-app.git
+- Run `npm install` on your command prompt to download all project dependancies
 - Add config.js file in src folder and add a key for Flicker api as below:
     ```
     const apiKey = 'YOUR API KEY';
     export default apiKey;
     ```
-- Do 'npm start' to start the local server and launch the project in the browser.
+- Run `npm start` to start the local server and launch the project in the browser.
 
 ## Screenshot
 ![alt text](https://github.com/dilipagheda/react-gallary-app/blob/master/mockups/Results-Layout.png)
