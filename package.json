@@ -1,8 +1,10 @@
 {
   "name": "react-gallary-app",
   "version": "0.1.0",
+  "homepage": "http://dilipagheda.com/react-gallary-app/",
   "private": true,
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1",
@@ -10,6 +12,8 @@
     "semantic-ui-react": "^0.84.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build", 
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

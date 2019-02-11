@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter,
+  HashRouter,
   Route,
   Switch,
   Redirect
@@ -95,7 +95,7 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div className="container">
           <SearchPhraseForm performSearch={this.searchCallBack}/>
           <Nav />
@@ -116,7 +116,7 @@ class App extends Component {
 
           
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
