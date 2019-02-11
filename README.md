@@ -7,6 +7,10 @@ Project tasks:
 - Use the Fetch API or a tool like Axios to fetch data from the Flickr API and use it to display images in your app.
 - Add logic to handle the search and various requirements of the project.
 - Add to the supplied CSS to personalize the project.
+- Use HashRouter instead of BrowserRouter so that it can be deployed on Github pages without Errors and URLs always stay in sync with React Routes.
+
+## Live Deployment
+This project is deployed live on Github Pages. It can be accessed via http://dilipagheda.com/react-gallary-app
 
 ## How to run the project locally
 - Download the project folder on your local machine. You can also clone it using this link: https://github.com/dilipagheda/react-gallary-app.git
