@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/react-gallary-app/static/js/runtime~main.deab69e0.js"
   },
   {
-    "revision": "3970d8604b5b0399a68c4f572e5326d3",
+    "revision": "65aed43eb9bddd7772d4242a773e8901",
     "url": "/react-gallary-app/index.html"
   }
 ];
